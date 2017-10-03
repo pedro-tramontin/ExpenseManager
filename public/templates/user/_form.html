@@ -1,0 +1,27 @@
+<h2><% print(helper.title) %></h2>
+<br />
+
+<form action="/users" role="form" method="POST" class="form-horizontal">
+	<div class="form-group">
+		<label for="user" class="col-sm-2 control-label">Login</label>
+		<div class="col-md-9">
+			<input class="form-control" type="text" name="login"
+				value="<% print(helper.model.get('login')) %>"> <span
+				class="help-block text-muted"></span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="pass" class="col-sm-2 control-label">Senha</label>
+		<div class="col-md-9">
+			<input class="form-control" type="text" name="pass"
+				value="<% print(helper.model.get('pass')) %>"> <span
+				class="help-block text-muted"></span>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default"><%
+				print(helper.buttonText) %></button>
+		</div>
+	</div>
+</form>

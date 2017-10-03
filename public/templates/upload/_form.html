@@ -1,0 +1,42 @@
+<h2>Fatura upload</h2>
+<br />
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link rel="stylesheet" href="/assets/stylesheets/jquery.fileupload.css">
+<div class="container">
+	<form id="formUpload" action="/upload" role="form" method="POST"
+		enctype="multipart/form-data" class="form-horizontal">
+		<div class="form-group">
+			<label for="period" class="col-sm-2 control-label">Período</label>
+			<div class="col-sm-10">
+				<select class="form-control" name="period">
+					<option value="0"></option> <% _.each(periods.models,
+					function(period) { %>
+					<option value="<% print(period.get('id')) %>"><%
+						print(period.get('value')) %></option> <% }) %>
+				</select> <span class="help-block text-muted"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="statementFile" class="col-sm-2 control-label">Fatura</label>
+			<div class="col-sm-10">
+				<span class="btn btn-success fileinput-button"> <i
+					class="glyphicon glyphicon-plus"></i> <span>Select files...</span>
+					<input id="fileupload" type="file" name="statementFile" multiple>
+				</span>
+			</div>
+		</div>
+	</form>
+	<br />
+	<!-- The global progress bar -->
+	<div id="progress" class="progress">
+		<div class="progress-bar progress-bar-success"></div>
+	</div>
+	<br>
+</div>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="/assets/javascripts/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="/assets/javascripts/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="/assets/javascripts/jquery.fileupload.js"></script>
+<script src="/assets/javascripts/upload.js"></script>

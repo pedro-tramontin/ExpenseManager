@@ -1,0 +1,26 @@
+@(categories: List[Category])
+
+@import helper._
+@import tags._
+
+@implicitField = @{ FieldConstructor(myTwitterBootstrapFieldConstructor.f) }
+
+@layout(title="Money Management :: Ganhos por Categoria") {
+	<h2>Ganhos por Categoria</h2>
+	<br/>
+	
+	<table class="table table-striped table-condensed table-bordered">
+		<tr>
+			<th>Categoria</th>
+			<th>Soma</th>
+		</tr>
+		@for(category <- categories) {
+			@if(category.earns.size() > 0) {
+				<tr>
+					<td>@category.name</td>
+					<td>@currency(category.earns.foldLeft(0.0)((b,a) => b + a.value))</td>
+				</tr>
+			}
+		}
+	</table>
+}

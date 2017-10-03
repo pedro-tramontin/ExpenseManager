@@ -1,0 +1,22 @@
+@(periods: List[Period])
+
+@import helper._
+@import tags._
+
+@layout(title="Money Management :: Saldo") {
+    <h2>Saldo</h2>
+	<br/>
+
+	<table class="table table-striped table-condensed table-bordered">
+    	<tr>
+    		<th>Período</th>
+    		<th>Saldo</th>
+    	</tr>
+		@for(period <- periods ) {
+	        <tr>
+	        	<td>@period.value</td>
+	        	<td>@currency(period.earns.foldLeft(0.0)((b,a) => b + a.value) - period.expenses.foldLeft(0.0)((b,a) => b + a.value))</td>
+	        </tr>
+		}
+    </table>
+}

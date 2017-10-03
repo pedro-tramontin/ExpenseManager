@@ -1,0 +1,24 @@
+@(periodExpenses: List[PeriodExpenses])
+
+@import helper._
+@import tags._
+
+@layout(title="Money Management :: Gastos por Período") {
+	<h2>Gastos por Período</h2>
+	<br/>
+	
+	<table class="table table-striped table-condensed table-bordered">
+		<tr>
+			<th>Período</th>
+			<th>Soma</th>
+		</tr>
+		@for(pe <- periodExpenses) {
+			@if(pe.totalExpense > 0) {
+				<tr>
+					<td>@pe.period.value</td>
+					<td>@currency(pe.totalExpense)</td>
+				</tr>
+			}
+		}
+	</table>
+}

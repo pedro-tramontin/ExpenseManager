@@ -1,0 +1,27 @@
+﻿<td><%= helper.model.datetime %><input type="hidden"
+	name="datetime[<%= helper.index %>]"
+	value="<%= helper.model.datetime %>" /></td>
+<td><%= helper.model.bankDescription %><input type="hidden"
+	name="bankDescription[<%= helper.index %>]"
+	value="<%= helper.model.bankDescription %>" /></td>
+<td><input type="text" id="description"
+	name="description[<%= helper.index %>]"
+	value="<%= helper.model.description %>" /></td>
+<td><input type="text" id="value" name="value[<%= helper.index %>]"
+	value="<%= Template.getEditValueFrom(helper.model.value) %>" /></td>
+<td><select class="form-control" id="category"
+	name="category[id][<%= helper.index %>]">
+		<option value="0"></option> <% _.each(helper.categories.models,
+		function(category) { %>
+		<option value="<% print(category.get('id')) %>"<%
+			Template.printSelected(print, helper.model.category, category) %>> <%
+			print(category.get('name')) %></option> <% }) %>
+</select></td>
+<td><select class="form-control" id="period"
+	name="period[id][<%= helper.index %>]">
+		<option value="0"></option> <% _.each(helper.periods.models,
+		function(period) { %>
+		<option value="<% print(period.get('id')) %>"<%
+			Template.printSelected(print, helper.model.period, period) %>> <%
+			print(period.get('value')) %></option> <% }) %>
+</select></td>

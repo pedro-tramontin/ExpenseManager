@@ -1,0 +1,105 @@
+@(title: String)(content: Html)
+<!DOCTYPE html> 
+<html lang="pt-br">
+	<head>
+		<title>@title</title>
+		<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+		<link rel='stylesheet' href='@routes.Assets.at("stylesheets/bootstrap.css")'>
+	</head>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-menu">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/" class="navbar_link">Money Management</a>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="navbar-collapse-menu">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Ganhos <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/earns" class="navbar_link">Listar</a></li>
+							<li><a href="/earn/new" class="navbar_link">Adicionar</a></li>
+							<li class="divider"></li>
+							<li><a href="@routes.Earns.byPeriod">Listar por período</a></li>
+							<li><a href="@routes.Earns.byCategory">Listar por categoria</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gastos <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/expenses" class="navbar_link">Listar</a></li>
+							<li><a href="/expense/new" class="navbar_link">Adicionar</a></li>
+							<li class="divider"></li>
+							<li><a href="@routes.Expenses.byPeriod">Listar por período</a></li>
+							<li><a href="@routes.Expenses.byCategory">Listar por categoria</a></li>
+							<li><a href="@routes.Expenses.byPeriodAndCategory">Listar por período e categoria</a></li>
+							<li class="divider"></li>
+							<li><a href="/expenses/relatory/filtered/201403" class="navbar_link">Filtra período e ordernar por categoria</a></li>
+							
+						</ul>
+					</li>
+					<li><a href="@routes.Application.balance">Saldo</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Períodos <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/periods" class="navbar_link">Listar</a></li>
+							<li><a href="/period/new" class="navbar_link">Adicionar</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/categories" class="navbar_link">Listar</a></li>
+							<li><a href="/category/new" class="navbar_link">Adicionar</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuários <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/users" class="navbar_link">Listar</a></li>
+							<li><a href="/user/new" class="navbar_link">Adicionar</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Teste <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/teste" class="navbar_link">Teste</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">SQL <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/sql" class="navbar_link">SQL</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Upload <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/upload" class="navbar_link">Upload</a></li>
+						</ul>
+					</li>
+				</ul>
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+		<script type='text/javascript' src='@routes.Assets.at("javascripts/jquery-1.10.2.js")'></script>
+		<script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap.js")'></script>
+		<script type='text/javascript' src='@routes.Assets.at("javascripts/underscore.js")'></script>
+		<script type='text/javascript' src='@routes.Assets.at("javascripts/backbone.js")'></script>
+		<script type='text/javascript' src='@routes.Assets.at("javascripts/backbone.syphon.js")'></script>
+		<section id="content">@content</section>
+		<script type="text/javascript" src='@routes.Assets.at("javascripts/template.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("javascripts/CRUD.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("javascripts/upload.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("javascripts/main.js")'></script>
+	</body>
+</html>

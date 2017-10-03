@@ -1,0 +1,26 @@
+@(periods: List[Period])
+
+@import helper._
+@import tags._
+
+@implicitField = @{ FieldConstructor(myTwitterBootstrapFieldConstructor.f) }
+
+@layout(title="Money Management :: Ganhos por Período") {
+	<h2>Ganhos por Período</h2>
+	<br/>
+	
+	<table class="table table-striped table-condensed table-bordered">
+		<tr>
+			<th>Período</th>
+			<th>Soma</th>
+		</tr>
+		@for(period <- periods) {
+			@if(period.earns.size() > 0) {
+				<tr>
+					<td>@period.value</td>
+					<td>@currency(period.earns.foldLeft(0.0)((b,a) => b + a.value))</td>
+				</tr>
+			}
+		}
+	</table>
+}

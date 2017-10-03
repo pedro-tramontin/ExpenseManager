@@ -1,0 +1,81 @@
+@()
+<!DOCTYPE html> 
+<html lang="pt-br">
+	<head>
+		<title>Login</title>
+		<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+		<link rel='stylesheet' href='@routes.Assets.at("stylesheets/bootstrap.css")'>
+		<style type="text/css">
+			html {
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+				min-width: 100%;
+				min-height: 100%;
+			}
+
+			body {
+				height: 100%;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+			}
+
+			.myContainer {
+				height:100%;
+				display:table;
+				width: 100%;
+				padding: 0;
+			}
+
+			.row-fluid {
+				height: 100%;
+				display:table-cell;
+				vertical-align: middle;
+			}
+
+			.centering {
+				float:none;
+				margin:0 auto;
+				width: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap.js")'></script>
+		<div class="myContainer">
+			<div class="row-fluid">
+				<div class="centering text-center">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Login</h3>
+						</div>
+						<div class="panel-body">
+							<form action="@routes.Login.authenticate" role="form" method="POST" class="form-horizontal">
+								<div class="form-group">
+									<label for="user" class="col-sm-2 control-label">Login</label>
+									<div class="col-md-9">
+										<input class="form-control" type="text" name="login"> <span
+											class="help-block text-muted"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="pass" class="col-sm-2 control-label">Senha</label>
+									<div class="col-md-9">
+										<input class="form-control" type="text" name="pass"> <span
+											class="help-block text-muted"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-12">
+										<button type="submit" class="btn btn-default">Entrar</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

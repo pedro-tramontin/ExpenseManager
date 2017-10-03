@@ -1,0 +1,32 @@
+<h2>SQL</h2>
+<br />
+
+<form action="/query" role="form" method="POST" class="form-horizontal"
+	id="sqlForm">
+	<div class="form-group">
+		<label for=sql class="col-sm-2 control-label">SQL</label>
+		<div class="col-md-9">
+			<textarea class="form-control" type="text" name="sql" value=""
+				rows="5"></textarea>
+			<span class="help-block text-muted"></span>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="button" class="btn btn-default" id="sqlUpdate">Update</button>
+			<button type="button" class="btn btn-default" id="sqlQuery">Query</button>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+	$("#sqlUpdate").on("click", function() {
+		$("#sqlForm").attr("action", "/sqlUpdate");
+		$("#sqlForm").submit();
+	});
+
+	$("#sqlQuery").on("click", function() {
+		$("#sqlForm").attr("action", "/sqlQuery");
+		$("#sqlForm").submit();
+	});
+</script>

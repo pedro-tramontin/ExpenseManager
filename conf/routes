@@ -1,0 +1,86 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET      /                                     controllers.Application.index()
+GET      /balance                              @controllers.Application.balance()
+
+# Login
+GET      /login                                controllers.Login.form()
+POST     /login                                @controllers.Login.authenticate()
+GET      /logout                               controllers.Login.logout()             	
+
+
+# Expenses
+GET      /expenses                             @controllers.Expenses.list()
+
+GET      /expense/:id                          @controllers.Expenses.show(id: Long)
+POST     /expense                              @controllers.Expenses.add()
+DELETE   /expense/:id                          @controllers.Expenses.delete(id: Long)
+PUT      /expense/:id                          @controllers.Expenses.update(id: Long)
+
+GET      /expenses/relatory/byCategory         controllers.Expenses.byCategory()
+GET      /expenses/relatory/byPeriod           controllers.Expenses.byPeriod()
+GET      /expenses/relatory/byPeriodCategory   controllers.Expenses.byPeriodAndCategory()
+GET      /expenses/relatory/filtered/:period   @controllers.Expenses.filteredByPeriodAndOrderedByDate(period: String)
+
+
+
+# Earns          
+GET      /earns                                @controllers.Earns.list()
+
+GET      /earn/:id                             @controllers.Earns.show(id: Long)
+POST     /earn                                 @controllers.Earns.add()
+DELETE   /earn/:id                             @controllers.Earns.delete(id: Long)
+PUT      /earn/:id                             @controllers.Earns.update(id: Long)
+
+GET      /earns/relatory/byCategory            @controllers.Earns.byCategory()
+GET      /earns/relatory/byPeriod              @controllers.Earns.byPeriod()
+
+
+
+# Categories          
+GET      /categories                           @controllers.Categories.list()
+
+GET      /category/:id                         @controllers.Categories.show(id: Long)
+POST     /category                             @controllers.Categories.add()
+DELETE   /category/:id                         @controllers.Categories.delete(id: Long)
+PUT      /category/:id                         @controllers.Categories.update(id: Long)
+
+
+
+# Periods
+GET      /periods                              @controllers.Periods.list()
+
+GET      /period/:id                           @controllers.Periods.show(id: Long)
+POST     /period                               @controllers.Periods.add()
+DELETE   /period/:id                           @controllers.Periods.delete(id: Long)
+PUT      /period/:id                           @controllers.Periods.update(id: Long)
+
+
+
+# Users
+GET      /users                                @controllers.Users.list()
+
+GET      /user/:id                             @controllers.Users.show(id: Long)
+POST     /user                                 @controllers.Users.add()
+DELETE   /user/:id                             @controllers.Users.delete(id: Long)
+PUT      /user/:id                             @controllers.Users.update(id: Long)
+
+
+
+# Upload
+POST     /upload                               @controllers.Upload.upload()
+POST     /uploadBatch                          @controllers.Upload.uploadBatch()
+
+
+# Sql
+POST     /sqlQuery                             controllers.Application.executeQuery()
+POST     /sqlUpdate                            controllers.Application.executeUpdate()
+          
+
+# Map static resources from the /public folder to the /assets URL path
+GET      /assets/*file                         controllers.Assets.at(path="/public", file)
+#GET      /webjars/*file                        controllers.WebJarAssets.at(file)
+#GET      /javascriptsRoutes                    controllers.Application.javascriptRoutes()
